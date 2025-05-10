@@ -1,7 +1,13 @@
 <script>
   import { createEventDispatcher } from 'svelte';
   
+  /**
+     * @type {string | number}
+     */
   let rows;
+  /**
+     * @type {string | number}
+     */
   let cols;
   let table = '';
   const dispatch = createEventDispatcher();
@@ -9,14 +15,14 @@
   function generateTable() {
     let tempTable = '<table border="8">';    
     tempTable += '<tr><th></th>';
-    for (let j = 1; j <= cols; j++) {
+    for (let j = 1; j <= Number(cols); j++) {
       tempTable += `<th>${j}</th>`;
     }
     tempTable += '</tr>';    
-    for (let i = 1; i <= rows; i++) {
+    for (let i = 1; i <= Number(rows); i++) {
       tempTable += '<tr>';
       tempTable += `<th>${i}</th>`;      
-      for (let j = 1; j <= cols; j++) {
+      for (let j = 1; j <= Number(cols); j++) {
         tempTable += `<td>${i * j}</td>`;
       }
       tempTable += '</tr>';
